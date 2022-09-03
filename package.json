@@ -1,0 +1,13 @@
+{
+  "name": "com.nosy.personalgameutils",
+  "version": "0.1.0",
+  "displayName": "Personal Game Utils",
+  "description": "My personal utils scripts for developing games with unity.",
+  "unity": "2020.3",
+  "unityRelease": "0b5",
+  "author": {
+    "name": "Isaac Augusto",
+    "email": "isaacaugusto.dev@gmail.com"
+  },
+  "type": "template"
+}
