@@ -8,7 +8,7 @@ namespace CustomObjectPool {
         
         private Dictionary<GameObject, Pool> _freeInstances = new Dictionary<GameObject, Pool>();
 
-        public GameObject AdquireInstance(GameObject Obj)
+        public T AdquireInstance<T>(GameObject Obj) where T : Component
         {
             if (!_freeInstances.TryGetValue(Obj, out var _pool))
             {
@@ -19,10 +19,10 @@ namespace CustomObjectPool {
             if (_pool.TryGetFromPool(out var poolableObject))
             {
                 poolableObject.gameObject.SetActive(true);
-                return poolableObject;
+                return poolableObject.GetComponent<T>();;
             }
 
-            return InstantiatePoolableObject(Obj, _pool);
+            return InstantiatePoolableObject(Obj, _pool).GetComponent<T>();
         }
         
         private PoolableObject InstantiatePoolableObject(GameObject Obj, Pool pool)
