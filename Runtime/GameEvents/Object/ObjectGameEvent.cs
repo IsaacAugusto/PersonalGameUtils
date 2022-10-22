@@ -6,7 +6,9 @@ namespace GameEvents {
     /// <summary>
     /// Don't use it frequently, boxing to Object is expensive.
     /// </summary>
-    public class ObjectGameEvent : MonoBehaviour {
+    
+    [CreateAssetMenu(menuName = "GameEvent/Object")]
+    public class ObjectGameEvent : ScriptableObject {
         private List<ObjectGameEventListener> _listeners;
 
         public void Raise(Object data)
